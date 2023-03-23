@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import os
 
 st.write('## 画像トリミングアプリ')
 uploaded_file=st.file_uploader("ファイルアップロード", type='jpg')
@@ -19,4 +20,6 @@ if st.button('トリミング開始'):
     st.success("選択された画像のリサイズ処理が完了しました。")
     st.image(resized_image, caption='リサイズされた画像', use_column_width=True)
     cropped_image = resized_image.crop(resized_image.getbbox())
-    cropped_image.save("uploaded_file.jpg")
+    filename = "uploaded_file.jpg"
+    filepath = os.path.join(os.environ['USERPROFILE'],filename)
+    cropped_image.save(filepath)
