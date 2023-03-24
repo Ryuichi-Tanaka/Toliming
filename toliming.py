@@ -24,7 +24,8 @@ if st.button('トリミング開始'):
         st.success("選択された画像のリサイズ処理が完了しました。")
         st.image(resized_image, caption='リサイズされた画像', use_column_width=True)
         cropped_image = resized_image.crop(resized_image.getbbox())
-        filename = f"{i}uploaded_file.jpg"
+        #filename = f"Images/first_image/{i}.jpg"
+        filename = f"OneDrive/デスクトップ/Images/first_image/{i}.jpg"
         i+=1
         filepath = os.path.join(os.environ['USERPROFILE'],filename)
         cropped_image.save(filepath)
